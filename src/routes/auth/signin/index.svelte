@@ -19,6 +19,7 @@ export let error: string | undefined;
 const login = async (event: SubmitEvent) => {
   error = ''
   const formContent = event.target as HTMLFormElement
+  console.table(event.target)
   const response = await send(formContent)
 
   if (response.error) {
