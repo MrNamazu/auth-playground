@@ -44,20 +44,22 @@ const changePassword = async (event: SubmitEvent) => {
 
 <div class="container">
   <h2>Edit Password</h2>
+  
   {#if error} <div class="error">{error}</div>{/if}
   {#if success} <div class="success">{success}</div>{/if}
+
   <form on:submit|preventDefault={changePassword} method="post">
     <div>
       <label for="oldpassword">Current password</label>
-      <input type="password" id="oldpassword" name="oldpassword">
+      <input class="input" type="password" id="oldpassword" name="oldpassword">
     </div>
     <div>
       <label for="newpassword">New password</label>
-      <input type="password" id="newpassword" name="newpassword">
+      <input class="input" type="password" id="newpassword" name="newpassword">
     </div>
     <div>
       <label for="newpasswordrp">Repeat new password</label>
-      <input type="password" id="newpasswordrp" name="newpasswordrp">
+      <input class="input" type="password" id="newpasswordrp" name="newpasswordrp">
     </div>
     <input type="hidden" id="mail" name="mail" bind:value={user} />
     <input type="submit" class="btn" value="Submit">
@@ -69,7 +71,7 @@ const changePassword = async (event: SubmitEvent) => {
 <style lang="scss">
   .container {
     width: 500px;
-    border: 1px solid #FFF;
+    border: 2px solid rgb(61, 61, 68);
     padding: 20px;
     border-radius: 10px;
   }

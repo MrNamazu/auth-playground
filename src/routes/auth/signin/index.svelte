@@ -38,11 +38,11 @@ const login = async (event: SubmitEvent) => {
 <form on:submit|preventDefault={login} method="post">
   <div>
     <label for="mail">E-Mail</label>
-    <input type="email" id="mail" name="mail">
+    <input class="input" type="email" id="mail" name="mail">
   </div>
   <div>
     <label for="mail">Password</label>
-    <input type="password" id="password" name="password">
+    <input class="input" type="password" id="password" name="password">
   </div>
   <input class="btn" type="submit" value="Signin">
 </form>

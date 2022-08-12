@@ -21,7 +21,8 @@ body {
 .btn {
   background-color: rgb(87, 145, 221);
   border: 0px solid;
-  padding: 5px 15px;
+  padding: 10px 15px;
+  border-radius: 5px;
   display: block;
   color: #fff;
   text-decoration: none;
@@ -33,4 +34,11 @@ body {
     background-color: rgb(112, 164, 231);
     color: #fff;
   }
+}
+.input {
+  background-color: rgb(38, 36, 41);
+  border: 2px solid rgb(61, 61, 68);
+  border-radius: 5px;
+  color: #FFF;
+  padding: 10px;
 }

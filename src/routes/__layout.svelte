@@ -17,7 +17,6 @@
 	<ul>
 		<li><a href="/auth/signin">Signin</a></li>
 		<li><a href="/auth/signup">Signup</a></li>
-		
 	</ul>
 	{/if}
 </nav>
@@ -46,8 +45,9 @@
 		li {
 			margin-right: 10px;
 			background-color: rgb(87, 145, 221);
+			border-radius: 5px;
 			a {
-				padding: 5px 15px;
+				padding: 10px 15px;
 				display: block;
 				color: #fff;
 				text-decoration: none;
