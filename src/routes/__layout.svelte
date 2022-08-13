@@ -1,17 +1,46 @@
+<script context="module" lang="ts">
+	import type { Load } from '@sveltejs/kit';
+	
+
+export const load: Load = async ({session}) => {
+  const getAvatar = async () => {
+		if (session?.user?.ffid !== undefined) {
+			const fetchCharacter = await fetch(`https://xivapi.com/character/${session.user.ffid}`)
+			const character = await fetchCharacter.json()
+			return character.Character.Avatar
+		}
+	}
+  return {
+    status: 200,
+    props: {
+			avatar: session?.user?.ffid ? await getAvatar() : '',
+    }
+  };
+}
+</script>
+
 <script lang="ts">
 	import { session } from '$app/stores';
 	import '../app.scss';
+
+	export let avatar: string;
 </script>
 
 <nav>
 	<ul>
 		<li><a href="/">Home</a></li>
 		<li><a href="/about">About</a></li>
-		<li><a href="/about">Draggable</a></li>
+		<li><a href="/drag">Draggable</a></li>
 	</ul>
 	{#if $session.user}
 	<ul>
-		<li><a href="/profile-settings">{$session.user?.email}</a></li>
+		<li>
+			<a href="/profile-settings" style="display: flex; align-items: center; gap: 10px">
+				{$session.user?.ffchar ? $session.user?.ffchar : $session.user?.email}
+				{#if $session.user.ffchar}<img class="profilepic" src={avatar} alt="profilepic">{/if}
+			</a>
+			
+		</li>
 		<li><a href="/auth/logout">Logout</a></li>
 	</ul>
 	{:else}
@@ -57,5 +86,10 @@
 				font-size: 12px;
 			}
 		}
+	}
+	.profilepic {
+		width: 30px;
+		height: 30px;
+		border-radius: 50%;
 	}
 </style>

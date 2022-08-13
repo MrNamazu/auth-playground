@@ -7,13 +7,16 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = "postgres://postgres:postgrespw@localhost:49153"
+  url      = "postgres://postgres:postgrespw@localhost:49155"
 }
 
 model User {
   id            String @id @default(uuid())
+  fftoken       String @default(uuid())
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
   email         String @unique
   passwordHash  String
+  ffchar        String?
+  ffID          String?
 }

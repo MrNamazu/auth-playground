@@ -15,7 +15,7 @@ export const POST: RequestHandler = async ({request}) => {
       body: {error: 'Invalid input, please check your input and try again.'}
     };
   }
-
+  console.log("test")
   if (password.length < 8) {
     return { 
       status: 400,
@@ -49,9 +49,10 @@ export const POST: RequestHandler = async ({request}) => {
       body: {success: 'You have successfully signed up'}
     }
   } catch (error) {
+    console.log(error)
     return {
       status: 400,
-      body: {error: 'An User with this E-Mail allready exists'}
+      body: {error: 'aaaaaaaaaaaaaa'}
     }
   }
 

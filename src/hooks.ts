@@ -15,7 +15,12 @@ export const handle: Handle = async ({ event, resolve }) => {
   })
 
   if (dbuser) {
-    event.locals.user = {email: dbuser.email}
+    event.locals.user = {
+      email: dbuser.email,
+      fftoken: dbuser.fftoken,
+      ffchar: dbuser.ffchar,
+      ffid: dbuser.ffID, 
+    }
   }
   return await resolve(event)
 }
@@ -25,6 +30,9 @@ export const getSession: GetSession = ({ locals }) => {
   return {
     user: {
       email: locals.user.email,
+      fftoken: locals.user.fftoken,
+      ffchar: locals.user.ffchar, 
+      ffid: locals.user.ffid, 
     }
   }
 }

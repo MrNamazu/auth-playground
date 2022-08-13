@@ -3,13 +3,23 @@
 // and what to do when importing types
 declare namespace App {
 	interface Locals {
-		user?: {email: string}
+		user?: {
+			email: string,
+			fftoken: string,
+			ffchar: string,
+			ffid: string,
+		}
 	}
 	// interface Platform {}
 	// interface PrivateEnv {}
 	// interface PublicEnv {}
 	interface Session {
-		user?: {email: string}
+		user?: {
+			email: string,
+			fftoken: string,
+			ffchar: string,
+			ffid: string,
+		}
 	}
 	// interface Stuff {}
 }

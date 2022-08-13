@@ -46,6 +46,7 @@ export const POST: RequestHandler = async ({request}) => {
       }
     })
   } catch (error) {
+    console.log(error)
     return {
       status: 400,
       body: {error: 'smth went wrong'}

@@ -1,5 +1,9 @@
 /* Write your global styles here, in SCSS syntax. Variables and mixins from the src/variables.scss file are available here without importing */
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   background-color: rgb(31, 30, 34);
   color: #FFF;
@@ -34,11 +38,4 @@ body {
     background-color: rgb(112, 164, 231);
     color: #fff;
   }
-}
-.input {
-  background-color: rgb(38, 36, 41);
-  border: 2px solid rgb(61, 61, 68);
-  border-radius: 5px;
-  color: #FFF;
-  padding: 10px;
 }

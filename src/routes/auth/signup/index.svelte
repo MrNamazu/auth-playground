@@ -17,7 +17,7 @@ import { passwordStrength } from 'check-password-strength';
 export let error: string | undefined
 export let success: string | undefined
 
-let password: string;
+/* let password: string;
 let strength: any;
 
 
@@ -25,7 +25,7 @@ const checkPassword = (password:string) => {
   strength = passwordStrength(password);
 }
 $: checkPassword(password)
-
+ */
 const register = async (event: SubmitEvent) => {
   error = ''
   const formContent = event.target as HTMLFormElement
@@ -54,13 +54,13 @@ const register = async (event: SubmitEvent) => {
   </div>
   <div>
     <label for="mail">Password (At least 8 Signs)</label>
-    <input class="input" bind:value={password} type="password" id="password" name="password">
-    {#if password}
+    <input class="input" type="password" id="password" name="password">
+    <!-- {#if password}
       <div class="passwordCheck">
         <p>{strength.value}</p>
         <div class="valueBar" class:weak={strength.id === 0} class:low={strength.id === 1} class:medium={strength.id === 2} class:strong={strength.id === 3}></div>
       </div>
-    {/if}
+    {/if} -->
     
   </div>
   <div>

@@ -19,7 +19,7 @@ export let error: string | undefined;
 const login = async (event: SubmitEvent) => {
   error = ''
   const formContent = event.target as HTMLFormElement
-  console.table(event.target)
+  console.table(formContent)
   const response = await send(formContent)
 
   if (response.error) {
@@ -36,7 +36,7 @@ const login = async (event: SubmitEvent) => {
 
 {#if error} <div class="error">{error}</div>{/if}
 
-<form on:submit|preventDefault={login} method="post">
+<form on:submit|preventDefault={login} action="/auth/signin" method="post">
   <div>
     <label for="mail">E-Mail</label>
     <input class="input" type="email" id="mail" name="mail">
