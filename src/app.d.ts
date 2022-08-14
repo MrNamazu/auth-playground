@@ -6,8 +6,8 @@ declare namespace App {
 		user?: {
 			email: string,
 			fftoken: string,
-			ffchar: string,
-			ffid: string,
+			ffchar: string | null,
+			ffid: string | null,
 		}
 	}
 	// interface Platform {}
@@ -17,8 +17,8 @@ declare namespace App {
 		user?: {
 			email: string,
 			fftoken: string,
-			ffchar: string,
-			ffid: string,
+			ffchar: string | null,
+			ffid: string | null,
 		}
 	}
 	// interface Stuff {}

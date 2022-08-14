@@ -5,9 +5,9 @@
 }
 
 body {
-  background-color: rgb(31, 30, 34);
+  background-color: $dark;
   color: #FFF;
-  font-family: 'Prompt', sans-serif;
+  font-family: $montserrat;
   margin: 0;
 }
 .error {

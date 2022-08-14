@@ -13,7 +13,7 @@ export const load: Load = async ({session}) => {
   return {
     status: 200,
     props: {
-			avatar: session?.user?.ffid ? await getAvatar() : '',
+			avatar: session?.user?.ffid ? await getAvatar() : undefined,
     }
   };
 }
@@ -21,28 +21,23 @@ export const load: Load = async ({session}) => {
 
 <script lang="ts">
 	import { session } from '$app/stores';
+	import Ucp from '$lib/comps/userControlPanel/ucp.svelte';
+	import { setContext } from 'svelte';
 	import '../app.scss';
 
-	export let avatar: string;
+	export let avatar: string | undefined;
+
+	setContext('avatar', avatar);
+
 </script>
 
 <nav>
 	<ul>
 		<li><a href="/">Home</a></li>
 		<li><a href="/about">About</a></li>
-		<li><a href="/drag">Draggable</a></li>
 	</ul>
 	{#if $session.user}
-	<ul>
-		<li>
-			<a href="/profile-settings" style="display: flex; align-items: center; gap: 10px">
-				{$session.user?.ffchar ? $session.user?.ffchar : $session.user?.email}
-				{#if $session.user.ffchar}<img class="profilepic" src={avatar} alt="profilepic">{/if}
-			</a>
-			
-		</li>
-		<li><a href="/auth/logout">Logout</a></li>
-	</ul>
+		<Ucp />
 	{:else}
 	<ul>
 		<li><a href="/auth/signin">Signin</a></li>
@@ -76,14 +71,19 @@ export const load: Load = async ({session}) => {
 			margin-right: 10px;
 			background-color: rgb(87, 145, 221);
 			border-radius: 5px;
+			display: flex;
 			a {
 				padding: 10px 15px;
-				display: block;
+				display: flex;
+				align-items: center;
 				color: #fff;
 				text-decoration: none;
         font-weight: 600;
 				text-transform: uppercase;
 				font-size: 12px;
+				img {
+					margin-left: 5px;
+				}
 			}
 		}
 	}
